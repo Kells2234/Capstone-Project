@@ -4,7 +4,7 @@ Title:
 Investment Outlook and Guidance for Senior Care Industry
 
 <br>Author: Kelly Simmons</br>
-<br>Date: 10/24/23</br>
+<br>Date: 10/2423</br>
 
 
 ## Getting Started
@@ -14,8 +14,6 @@ Investment Outlook and Guidance for Senior Care Industry
 Before running the producer, ensure the following requirements are met:
 
 ## The key features of this project include:
-
-- Reading sensor data from the CSV file.
 
 
 
