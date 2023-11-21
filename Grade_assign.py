@@ -12,8 +12,8 @@ def assign_grade(score):
         return 'F'
 
 # Read data from the output file
-file_path = 'path/to/your/output_file.txt'  # Update this with the actual path
-with open(file_path, 'r') as file:
+file_path = r'C:\Users\keros\.venv\Capstone-Project\output_data.xlsx'
+with open('output_data.xlsx', 'r') as file:
     lines = file.readlines()
 
 # Process each line and assign grades
@@ -31,8 +31,6 @@ print("Grades:")
 for i, grade in enumerate(grades, start=1):
     print(f"Student {i}: {grade}")
 
-# If you want to save the grades to a new file, you can use the following code:
-# with open('path/to/your/grades_file.txt', 'w') as grade_file:
-#     for grade in grades:
-#         grade_file.write(f"{grade}\n")
+
+
 
