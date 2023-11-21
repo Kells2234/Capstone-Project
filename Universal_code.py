@@ -1,40 +1,67 @@
-import os
 import pandas as pd
-
-def read_and_transform(file_path):
-    # Implement your logic to read and transform each Excel file
-    # This function should return a DataFrame with a standardized structure
-    # Adjust this function based on the actual structure of each file
-
-    # Example logic (replace this with your actual logic)
-    df = pd.read_excel(file_path)
-    # Your data transformation logic goes here...
-
-    return df
-
-def combine_excel_files(directory, output_file):
-    # List all Excel files in the directory
-    excel_files = [f for f in os.listdir(directory) if f.endswith('.xlsx')]
-
-    # Initialize an empty DataFrame to store the combined data
-    combined_data = pd.DataFrame()
-
-    # Iterate through each Excel file, read, and transform the data
-    for file in excel_files:
-        file_path = os.path.join(directory, file)
-        df = read_and_transform(file_path)
-        combined_data = pd.concat([combined_data, df], ignore_index=True)
-
-    # Write the combined data to a new Excel file
-    combined_data.to_excel(output_file, index=False)
-
-    print(f"Combined data saved to {output_file}")
+import os
 
 # Set the path to the directory containing your Excel files
-excel_files_directory = '/path/to/excel/files/'
+input_directory = r'C:\Users\keros\.venv\Capstone-Project'
 
-# Set the path for the output combined Excel file
-output_file_path = '/path/to/output/combined_data.xlsx'
+# List all Excel files in the directory
+excel_files = [f for f in os.listdir(input_directory) if f.endswith('Nursing home Cost_state.xlsx')]
+excel_files = [f for f in os.listdir(input_directory) if f.endswith('Population_stats')]
+excel_files = [f for f in os.listdir(input_directory) if f.endswith('Facility Staffing Combined.xlsx')]
+excel_files = [f for f in os.listdir(input_directory) if f.endswith('State by State Violations2023.xlsx')]
+csv_files = [f for f in os.listdir(input_directory) if f.endswith('Facility_by_state.csv')]
 
-# Call the function to combine Excel files
-combine_excel_files(excel_files_directory, output_file_path)
+
+# Initialize an empty DataFrame to store the combined data
+combined_data = pd.DataFrame()
+
+# Columns you want to include in the final DataFrame
+desired_columns = ['State', 'Population', 'GDP']
+
+# Loop through each Excel file and append its data to the combined DataFrame
+for excel_file in excel_files:
+    excel_path = os.path.join(input_directory, excel_file)
+    try:
+
+        df = pd.read_excel(excel_path)  # Assumes data is in the first sheet, adjust as needed
+
+        # Check if 'State' column exists
+        if 'State' in df.columns:
+            # Add State_ID to the DataFrame based on State names
+            state_id_mapping = {state: idx + 1 for idx, state in enumerate(df['State'].unique())}
+            df['State_ID'] = df['State'].map(state_id_mapping)
+
+            combined_data = pd.concat([combined_data, df], ignore_index=True)
+        else:
+            print(f"'State' column not found in {excel_file}. Skipping...")
+    except pd.errors.ParserError as e:
+        print(f"Error reading {excel_file}: {e}")
+
+    combined_data = pd.concat([combined_data, df], ignore_index=True)
+
+# Loop through each CSV file and append its data to the combined DataFrame
+for csv_file in csv_files:
+    csv_path = os.path.join(input_directory, csv_file)
+    try:
+        df = pd.read_csv(csv_path)
+
+         # Check if 'State' column exists
+        if 'State' in df.columns:
+            # Add State_ID to the DataFrame based on State names
+            state_id_mapping = {state: idx + 1 for idx, state in enumerate(df['State'].unique())}
+            df['State_ID'] = df['State'].map(state_id_mapping)
+
+            combined_data = pd.concat([combined_data, df], ignore_index=True)
+        else:
+            print(f"'State' column not found in {csv_file}. Skipping...")
+    except pd.errors.ParserError as e:
+        print(f"Error reading {csv_file}: {e}")
+
+        
+# Set the path for the output Excel file
+output_file_path = r'C:\Users\keros\.venv\Capstone-Project\output_data.xlsx'
+
+# Write the combined data to the output Excel file
+combined_data.to_excel(output_file_path, index=False)
+
+print(f"Data from {len(excel_files)} Excel files and {len(csv_files)} CSV files combined and saved to {output_file_path}")

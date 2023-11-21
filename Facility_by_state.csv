@@ -1,66 +1,61 @@
-﻿"Title: Total Number of Certified Nursing Facilities | KFF"
-"Timeframe: 2023"
-"Location","Number of Nursing Facilities"
-"United States","15003"
-"Alabama","225"
-"Alaska","20"
-"Arizona","142"
-"Arkansas","218"
-"California","1170"
-"Colorado","218"
-"Connecticut","203"
-"Delaware","44"
-"District of Columbia","17"
-"Florida","697"
-"Georgia","357"
-"Hawaii","43"
-"Idaho","80"
-"Illinois","694"
-"Indiana","521"
-"Iowa","412"
-"Kansas","313"
-"Kentucky","276"
-"Louisiana","269"
-"Maine","87"
-"Maryland","225"
-"Massachusetts","353"
-"Michigan","430"
-"Minnesota","353"
-"Mississippi","202"
-"Missouri","510"
-"Montana","62"
-"Nebraska","185"
-"Nevada","67"
-"New Hampshire","73"
-"New Jersey","348"
-"New Mexico","68"
-"New York","606"
-"North Carolina","420"
-"North Dakota","77"
-"Ohio","946"
-"Oklahoma","292"
-"Oregon","129"
-"Pennsylvania","672"
-"Rhode Island","75"
-"South Carolina","188"
-"South Dakota","98"
-"Tennessee","312"
-"Texas","1195"
-"Utah","98"
-"Vermont","35"
-"Virginia","289"
-"Washington","198"
-"West Virginia","123"
-"Wisconsin","332"
-"Wyoming","36"
-
-"Notes"
+﻿United States,15003
+Alabama,225
+Alaska,20
+Arizona,142
+Arkansas,218
+California,1170
+Colorado,218
+Connecticut,203
+Delaware,44
+District of Columbia,17
+Florida,697
+Georgia,357
+Hawaii,43
+Idaho,80
+Illinois,694
+Indiana,521
+Iowa,412
+Kansas,313
+Kentucky,276
+Louisiana,269
+Maine,87
+Maryland,225
+Massachusetts,353
+Michigan,430
+Minnesota,353
+Mississippi,202
+Missouri,510
+Montana,62
+Nebraska,185
+Nevada,67
+New Hampshire,73
+New Jersey,348
+New Mexico,68
+New York,606
+North Carolina,420
+North Dakota,77
+Ohio,946
+Oklahoma,292
+Oregon,129
+Pennsylvania,672
+Rhode Island,75
+South Carolina,188
+South Dakota,98
+Tennessee,312
+Texas,1195
+Utah,98
+Vermont,35
+Virginia,289
+Washington,198
+West Virginia,123
+Wisconsin,332
+Wyoming,36
+,
+Notes,
 "Data are as of July of the noted year. 
-"
-""
-"Data are for certified nursing facilities surveyed in the U.S."
-
-"Sources"
-"KFF analysis of Nursing Home Compare"
-
-
+",
+,
+Data are for certified nursing facilities surveyed in the U.S.,
+,
+Sources,
+KFF analysis of Nursing Home Compare,
