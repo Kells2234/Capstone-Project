@@ -16,6 +16,7 @@ desired_columns_population_stats = ['Population 2023']
 
 desired_columns_facility_staffing_combined = ['Employee Average', 'Staff Increase/Decrease']
 
+
 desired_columns_state_violations = ['Total Deficiencies', 'Fine', 'Sum of Fines']
 
 desired_columns_mapping = {
