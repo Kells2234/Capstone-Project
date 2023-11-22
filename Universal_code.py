@@ -14,7 +14,7 @@ desired_columns_occ_rate = ['Occupancy Rate Avg']
 
 desired_columns_population_stats = ['Population 2023']
 
-desired_columns_facility_staffing_combined = ['Staff Average', 'Staff Increase/Decrease']
+desired_columns_facility_staffing_combined = ['Employee Average', 'Staff Increase/Decrease']
 
 desired_columns_state_violations = ['Total Deficiencies', 'Fine', 'Sum of Fines']
 
@@ -58,7 +58,7 @@ for excel_file in excel_files:
 
 # Columns you want to include in the final DataFrame
 desired_columns = ['State', 'Region', 'Private Room Annual Cost', 'Shared Room Annual Cost',
-                   'Facility Total', 'Population 2023', 'Staff Average ', 'Staff Increase/Decrease',
+                   'Facility Total', 'Population 2023', 'Employee Average ', 'Staff Increase/Decrease',
                    'Total Deficiencies', 'Fines', 'Sum of Fines']
 
 # Loop through each Excel file and append its data to the combined DataFrame
