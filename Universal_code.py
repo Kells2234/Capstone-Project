@@ -17,7 +17,7 @@ desired_columns_population_stats = ['Population 2023']
 desired_columns_facility_staffing_combined = ['Employee Average', 'Staff Increase/Decrease']
 
 
-desired_columns_state_violations = ['Total Deficiencies', 'Fine', 'Sum of Fines']
+desired_columns_state_violations = ['Total Deficiencies', 'Fines', 'Sum of Fines']
 
 desired_columns_mapping = {
     'Nursing home Cost_state.xlsx': desired_columns_nursing_home,
