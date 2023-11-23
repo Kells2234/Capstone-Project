@@ -16,37 +16,38 @@ desired_columns_population_stats = ['Population 2023']
 
 desired_columns_facility_staffing_combined = ['Employee Average', 'Staff Increase/Decrease']
 
-
 desired_columns_state_violations = ['Total Deficiencies', 'Fines', 'Sum of Fines']
 
-desired_columns_mapping = {
-    'Nursing home Cost_state.xlsx': desired_columns_nursing_home,
-    'Occ rate 2015_2023.xlsx': desired_columns_occ_rate,
-    'Population_stats.xlsx': desired_columns_population_stats,
-    'Facility Staffing Combined.xlsx': desired_columns_facility_staffing_combined,
-    'State by State Violations2023.xlsx': desired_columns_state_violations
-}
-
 # Filter Excel files
-excel_files = [f for f in all_files if f.endswith('.xlsx')]
+excel_files = [f for f in all_files if f.endswith('Nursing home Cost_state.xlsx') or
+                                     f.endswith('Population_stats.xlsx') or
+                                     f.endswith('Facility Staffing Combined.xlsx') or
+                                     f.endswith('State by State Violations2023.xlsx') or
+                                     f.endswith('Occ rate 2015_2023.xlsx')]
 
 # Iterate through each Excel file
 for excel_file in excel_files:
-    excel_path = os.path.join(input_directory, excel_file)
+    excel_path = os.path.join(r'C:\Users\keros\.venv\Capstone-Project', excel_file)
 
     # Determine which desired_columns list to use based on the file
-    desired_columns = desired_columns_mapping.get(excel_file, [])
-    if not desired_columns:
-        print(f"Desired columns not specified for {excel_file}. Skipping...")
-        continue
+    if 'Facility Staffing Combined' in excel_file:
+        desired_columns = desired_columns_facility_staffing_combined
+    elif 'Nursing home Cost_state' in excel_file:
+        desired_columns = desired_columns_nursing_home
+    elif 'Population_stats' in excel_file:
+        desired_columns = desired_columns_population_stats
+    elif 'State by State Violations2023' in excel_file:
+        desired_columns = desired_columns_state_violations
+    elif 'Occ rate 2015_2023' in excel_file:
+        desired_columns = desired_columns_occ_rate
 
     # Read the Excel file with the specified desired_columns
     df = pd.read_excel(excel_path, usecols=desired_columns)
 
 # Filter CSV files
-csv_files = [f for f in all_files if f.endswith('.csv')]
+csv_files = [f for f in all_files if f.endswith('Facility_by_state.csv')]
 
-desired_columns_facility_by_state = ['Facility Total']
+desired_columns_facility_by_state = ['Faciltiy Total']
 
 # Initialize an empty DataFrame to store the combined data
 combined_data = pd.DataFrame()
@@ -59,15 +60,15 @@ for excel_file in excel_files:
 
 # Columns you want to include in the final DataFrame
 desired_columns = ['State', 'Region', 'Private Room Annual Cost', 'Shared Room Annual Cost',
-                   'Facility Total', 'Population 2023', 'Employee Average ', 'Staff Increase/Decrease',
-                   'Total Deficiencies', 'Fines', 'Sum of Fines']
+                   'Employee Average', 'Staff Increase/Decrease', 'Population 2023',
+                   'Total Deficiencies', 'Fines', 'Sum of Fines', 'Facility Total']
 
 # Loop through each Excel file and append its data to the combined DataFrame
 for excel_file in excel_files:
     # Skip temporary Excel files
     if excel_file.startswith('~$'):
         continue
-
+    
     excel_path = os.path.join(input_directory, excel_file)
     try:
         # Print columns before reading
