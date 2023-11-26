@@ -26,6 +26,9 @@ features_and_target = features_and_target.dropna()
 X = features_and_target.drop(target_variable, axis=1)
 y = features_and_target[target_variable]
 
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
 # Create a linear regression model
 model = LinearRegression()
 
@@ -39,11 +42,28 @@ y_pred = model.predict(X_test)
 mse = mean_squared_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
 
+# ... (previous code)
+
+# Define letter grade thresholds
+mse_thresholds = {'A': 1000, 'B': 5000, 'C': 10000, 'D': 20000}
+r2_thresholds = {'A': 0.8, 'B': 0.6, 'C': 0.4, 'D': 0.0}
+
+# Determine the letter grades
+mse_grade = next((grade for grade, threshold in mse_thresholds.items() if mse <= threshold), 'E')
+r2_grade = next((grade for grade, threshold in r2_thresholds.items() if r2 >= threshold), 'E')
+
+# Print the evaluation metrics and letter grades
 print(f"Mean Squared Error: {mse}")
 print(f"R-squared: {r2}")
+print(f"MSE Grade: {mse_grade}")
+print(f"R-squared Grade: {r2_grade}")
+
 
 # Visualize the predictions
 plt.scatter(y_test, y_pred)
 plt.xlabel("True Values")
 plt.ylabel("Predictions")
 plt.show()
+
+
+
