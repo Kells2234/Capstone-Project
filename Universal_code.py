@@ -11,7 +11,7 @@ dfs = []
 desired_columns_order = [
     'State', 'Facility Total', 'Monthly', 'Annual', 'Employee Average', 'Staff Increase/Decrease',
     'Population 2023', 'Total Deficiencies', 'Fines', 'Sum of Fines', 'Certified Beds by State',
-    'Gross Patient Revenue'
+    'Gross Patient Revenue', 'Occupancy Rate Avg'
 ]
 
 # List all files in the directory
