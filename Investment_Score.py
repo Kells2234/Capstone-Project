@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load the combined data from the output file
-output_file_path = r'C:\Users\keros\.venv\Capstone-Project\outputdata.xlsx'
+output_file_path = r'C:\Users\keros\.venv\Capstone-Project\output_data.xlsx'
 combined_data = pd.read_excel(output_file_path)
 
 # Your scoring calculations here

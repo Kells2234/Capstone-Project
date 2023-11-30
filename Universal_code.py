@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 # Set the path to the directory containing your Excel files
-input_directory = r'C:\Users\keros\.venv\Capstone-Project'
+input_directory =  r'C:\Users\keros\.venv\Capstone-Project'
 
 # Initialize a list to store DataFrames
 dfs = []
@@ -53,7 +53,7 @@ if dfs:
     combined_data = combined_data[desired_columns_order]
 
     # Set the path for the output Excel file
-    output_file_path = r'C:\Users\keros\.venv\Capstone-Project\outputdata.xlsx'
+    output_file_path = r'C:\Users\keros\.venv\Capstone-Project\output_data.xlsx'
 
     # Write the combined data to the output Excel file without including the index
     combined_data.to_excel(output_file_path, index=False)
