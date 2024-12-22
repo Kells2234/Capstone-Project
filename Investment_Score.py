@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load the combined data from the output file
-output_file_path = r'C:\Users\keros\.venv\Capstone-Project\output_data.xlsx'
+output_file_path = r'C:\Users\keros\.myenv\NWMS Projects\Capstone-Project\output_data.xlsx'
 combined_data = pd.read_excel(output_file_path)
 
 # Your scoring calculations here
@@ -29,7 +29,7 @@ print(bottom_10)
 result_data = pd.concat([top_10, bottom_10])
 
 # Set the path for the output Excel file
-output_result_path = r'C:\Users\keros\.venv\Capstone-Project\investment_results.xlsx'
+output_result_path = r'C:\Users\keros\.myenv\NWMS Projects\Capstone-Project\investment_results.xlsx'
 
 # Write the results to the output Excel file without including the index
 result_data.to_excel(output_result_path, index=False)

@@ -46,18 +46,21 @@ for excel_file in all_files:
 if dfs:
     combined_data = pd.concat(dfs, axis=1, sort=False)
 
-    # Drop duplicate columns (if any)
-    combined_data = combined_data.loc[:, ~combined_data.columns.duplicated()]
+  # Drop duplicate columns (if any)
+combined_data = combined_data.loc[:, ~combined_data.columns.duplicated()]
 
-    # Explicitly reorder columns
-    combined_data = combined_data[desired_columns_order]
+# Explicitly reorder columns
+combined_data = combined_data[desired_columns_order]
 
-    # Set the path for the output Excel file
-    output_file_path = r'C:\Users\keros\.venv\Capstone-Project\output_data.xlsx'
+# Filter out rows where the 'State' column is equal to 'Exclude_State'
+values_to_exclude = ['Nan']
+combined_data = combined_data[~combined_data['State'].isin(values_to_exclude)]
 
-    # Write the combined data to the output Excel file without including the index
-    combined_data.to_excel(output_file_path, index=False)
+# Set the path for the output Excel file
+output_file_path = r'C:\Users\keros\.venv\Capstone-Project\output_data.xlsx'
 
-    print(f"Data from {len(all_files)} Excel files combined and saved to {output_file_path}")
-else:
-    print("No valid data found in Excel files.")
+# Write the combined data to the output Excel file without including the index
+combined_data.to_excel(output_file_path, index=False)
+
+print(f"Data from {len(all_files)} Excel files combined and saved to {output_file_path}")
+
